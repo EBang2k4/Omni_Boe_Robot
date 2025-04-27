@@ -1,0 +1,53 @@
+<launch>
+  <!-- Argument to select robot model -->
+  <arg name="model" default="$(env OMNI_DIFF_MODEL)" doc="Robot model: boe_bot or omni" />
+
+  <!-- Arguments for world and map -->
+  <arg name="world_name" default="turtlebot3_world.world" />
+  <arg name="world_path" default="$(find omni_diff)/worlds/$(arg world_name)" />
+  <arg name="map_file" default="$(find omni_diff)/maps/hector_turtlebot3_world.yaml" />
+
+  <!-- Simulation time -->
+  <param name="/use_sim_time" value="true" />
+
+  <!-- Start Gazebo with specified world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_path)" />
+    <arg name="paused" value="false" />
+    <arg name="use_sim_time" value="true" />
+    <arg name="gui" value="true" />
+    <arg name="headless" value="false" />
+    <arg name="debug" value="false" />
+    <arg name="physics" value="ode" />
+  </include>
+
+  <!-- Load robot description based on model -->
+  <param name="robot_description" 
+         command="cat $(find omni_diff)/urdf/$(arg model).urdf" />
+
+  <!-- Publish TF -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+
+  <!-- Spawn robot in Gazebo -->
+  <node name="spawn_model" pkg="gazebo_ros" type="spawn_model"
+        args="-param robot_description -urdf -model $(arg model) -x 1 -y 0.5 -z 0.1 -R 0 -P 0 -Y 0"
+        output="screen" />
+
+  <!-- Load map -->
+  <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)" />
+
+  <!-- AMCL -->
+  <include file="$(find omni_diff_navigation)/launch/amcl.launch">
+    <arg name="model" value="$(arg model)" />
+  </include>
+
+  <!-- Move Base -->
+  <include file="$(find omni_diff_navigation)/launch/move_base.launch">
+    <arg name="model" value="$(arg model)" />
+  </include>
+
+  <!-- RViz for visualization -->
+  <node pkg="rviz" type="rviz" name="rviz" 
+        args="-d $(find omni_diff_navigation)/rviz/navigation.rviz"/>
+</launch>

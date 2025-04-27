@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="omni">
+  <link name="base_footprint"/>
+  <!-- Connect base_footprint to base_link -->
+  <joint name="base_footprint_to_base_link" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.015" rpy="0 0 0"/> <!-- Adjust z to bring base_footprint to ground level -->
+  </joint>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="4.2217616858381E-05 -1.36406168309289E-05 0.0256330633245304"
+        rpy="0 0 0" />
+      <mass
+        value="0.776934117883959" />
+      <inertia
+        ixx="0.0012510407641893"
+        ixy="-2.12973888399047E-08"
+        ixz="-8.13720595075766E-07"
+        iyy="0.00125164353489153"
+        iyz="2.37085382610402E-07"
+        izz="0.00220875992971978" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni_diff/meshes/omni/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni_diff/meshes/omni/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="wheel_1_link">
+    <inertial>
+      <origin
+        xyz="-7.73331437414759E-07 1.36449829977667E-06 0.00250496373630286"
+        rpy="0 0 0" />
+      <mass
+        value="0.0573416524778113" />
+      <inertia
+        ixx="1.13223293476616E-05"
+        ixy="-2.95114751911968E-09"
+        ixz="3.32124459351346E-10"
+        iyy="1.13254060859156E-05"
+        iyz="-5.85053936638385E-10"
+        izz="2.1083778131878E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni_diff/meshes/omni/wheel_1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.498039215686275 0.498039215686275 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni_diff/meshes/omni/wheel_1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_1_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.100246212024587 0.0205"
+      rpy="1.57079632679491 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_1_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="wheel_2_link">
+    <inertial>
+      <origin
+        xyz="-7.17667867564109E-07 -1.39141786776459E-06 0.00250496280406023"
+        rpy="0 0 0" />
+      <mass
+        value="0.0573416543957745" />
+      <inertia
+        ixx="1.1322094172155E-05"
+        ixy="2.81602792280367E-09"
+        ixz="3.07984717325495E-10"
+        iyy="1.13256412752839E-05"
+        iyz="5.98180667761317E-10"
+        izz="2.10837781360202E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni_diff/meshes/omni/wheel_2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.498039215686275 0.498039215686275 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni_diff/meshes/omni/wheel_2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_2_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.100246212024587 0.0205"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_2_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="wheel_3_link">
+    <inertial>
+      <origin
+        xyz="1.51908366138875E-06 3.88345460337891E-07 0.00250496393125138"
+        rpy="0 0 0" />
+      <mass
+        value="0.0573416520711861" />
+      <inertia
+        ixx="1.13268774307609E-05"
+        ixy="1.42026119981065E-09"
+        ixz="-6.51892959609373E-10"
+        iyy="1.13208580119281E-05"
+        iyz="-1.66006995154101E-10"
+        izz="2.10837781377862E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni_diff/meshes/omni/wheel_3_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.498039215686275 0.498039215686275 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni_diff/meshes/omni/wheel_3_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_3_joint"
+    type="continuous">
+    <origin
+      xyz="0.100246212024587 0 0.0205"
+      rpy="-1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_3_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="wheel_4_link">
+    <inertial>
+      <origin
+        xyz="5.93270891108277E-07 1.45176169149761E-06 0.00250496284038063"
+        rpy="0 0 0" />
+      <mass
+        value="0.0573416543210749" />
+      <inertia
+        ixx="1.13216344271888E-05"
+        ixy="2.46736600754328E-09"
+        ixz="-2.54928006956048E-10"
+        iyy="1.13261010157933E-05"
+        iyz="-6.22521577202223E-10"
+        izz="2.1083778134734E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni_diff/meshes/omni/wheel_4_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.498039215686275 0.498039215686275 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni_diff/meshes/omni/wheel_4_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_4_joint"
+    type="continuous">
+    <origin
+      xyz="-0.100246212024587 0 0.0205"
+      rpy="-1.5707963267949 0 1.57079632679491" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_4_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="camera_link">
+    <inertial>
+      <origin
+        xyz="-0.00570924275550753 2.63369360276738E-05 -0.000162546959287517"
+        rpy="0 0 0" />
+      <mass
+        value="0.00154848311785293" />
+      <inertia
+        ixx="9.81433995869744E-08"
+        ixy="1.55151579933722E-11"
+        ixz="2.74786653138132E-09"
+        iyy="6.15272705564258E-08"
+        iyz="3.76721137527356E-10"
+        izz="5.63299136111501E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni_diff/meshes/omni/camera_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni_diff/meshes/omni/camera_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="camera_joint"
+    type="fixed">
+    <origin
+      xyz="0.0775462120245874 0 0.0695"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="camera_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="imu_link">
+    <inertial>
+      <origin
+        xyz="4.57501099858648E-05 -4.57501099858787E-05 0.000488343705367662"
+        rpy="0 0 0" />
+      <mass
+        value="0.000302850245192701" />
+      <inertia
+        ixx="7.75930196249146E-09"
+        ixy="-1.72720502873062E-09"
+        ixz="6.34808961588485E-13"
+        iyy="7.75930196249146E-09"
+        iyz="-6.34808961588458E-13"
+        izz="1.54683861524513E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni_diff/meshes/omni/imu_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.666666666666667 0.698039215686274 0.768627450980392 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni_diff/meshes/omni/imu_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="imu_joint"
+    type="fixed">
+    <origin
+      xyz="-0.000173723647626037 0.000173723647625995 0.00400000000000001"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="imu_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="lidar_link">
+    <inertial>
+      <origin
+        xyz="-6.08162525894684E-09 -0.00258459265937456 -0.0192244596068266"
+        rpy="0 0 0" />
+      <mass
+        value="0.36416636212167" />
+      <inertia
+        ixx="9.30309683309989E-05"
+        ixy="-3.45612498193269E-11"
+        ixz="3.27004824168747E-11"
+        iyy="9.15048641049864E-05"
+        iyz="1.20873061883238E-06"
+        izz="0.000123189101408121" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni_diff/meshes/omni/lidar_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni_diff/meshes/omni/lidar_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lidar_joint"
+    type="fixed">
+    <origin
+      xyz="0.000506090323826577 0.00262741066738623 0.0951306817990901"
+      rpy="0 0 -0.78539816339745" />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+   <!-- Depth Camera Plugin -->
+<gazebo reference="camera_link">
+  <sensor name="depth_camera_sensor" type="depth">
+    <always_on>1</always_on>
+    <update_rate>30</update_rate>
+    <camera>
+      <horizontal_fov>1.0472</horizontal_fov>
+      <image>
+        <width>640</width>
+        <height>480</height>
+        <format>R8G8B8</format>
+      </image>
+      <clip>
+        <near>0.1</near>
+        <far>100</far>
+      </clip>
+    </camera>
+    <plugin name="depth_camera_plugin" filename="libgazebo_ros_depth_camera.so">
+      <robotNamespace>/camera/depth</robotNamespace>
+      <imageTopicName>image_raw</imageTopicName>
+      <depthImageTopicName>depth/image_raw</depthImageTopicName>
+      <pointCloudTopicName>depth/points</pointCloudTopicName>
+      <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+      <frameName>camera_link</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+  <!-- LiDAR Plugin -->
+  <gazebo reference="lidar_link">
+    <material>Gazebo/FlatBlack</material>
+    <sensor type="ray" name="head_rplidar_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>10.0</update_rate> 
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples> 
+            <resolution>1</resolution>
+            <min_angle>-3.1415</min_angle> 
+            <max_angle>3.1415</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.120</min>
+          <max>10</max>
+          <resolution>0.015</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_head_rplidar_controller" filename="libgazebo_ros_laser.so">
+        <topicName>/scan</topicName>
+        <frameName>lidar_link</frameName>
+        <gaussianNoise>0.01</gaussianNoise>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- Planar Move Plugin -->
+  <gazebo>
+    <plugin name="planar_move" filename="libgazebo_ros_planar_move.so">
+      <ros>
+        <namespace>/</namespace>
+        <remapping>cmd_vel:=/cmd_vel</remapping>
+        <remapping>odom:=/odom</remapping>
+      </ros>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <odometryRate>100.0</odometryRate>
+      <cmdTimeout>1.0</cmdTimeout>
+      <publishOdomTF>true</publishOdomTF>
+      <velocityDecay>0.01</velocityDecay>
+    </plugin>
+  </gazebo>
+
+  <!-- IMU Plugin -->
+  <gazebo reference="imu_link">
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>imu</topicName>
+        <bodyName>imu_link</bodyName>
+        <updateRateHZ>10.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>imu_link</frameName>
+        <initialOrientationAsReference>false</initialOrientationAsReference>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+</robot>

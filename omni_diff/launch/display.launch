@@ -1,0 +1,18 @@
+<launch>
+  <!-- Argument to select robot model -->
+  <arg name="model" default="$(env OMNI_DIFF_MODEL)" doc="Robot model: boe_bot or omni" />
+
+  <!-- Load robot description based on model -->
+  <param name="robot_description" 
+         command="cat $(find omni_diff)/urdf/$(arg model).urdf" />
+
+  <!-- Joint state publisher GUI -->
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+
+  <!-- Robot state publisher -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <!-- RViz for visualization -->
+  <node name="rviz" pkg="rviz" type="rviz" 
+        args="-d $(find omni_diff)/rviz/$(arg model).rviz" />
+</launch>

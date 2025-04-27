@@ -1,0 +1,28 @@
+<launch>
+  <!-- Argument to select robot model -->
+  <arg name="model" default="$(env OMNI_DIFF_MODEL)" doc="Robot model: boe_bot or omni" />
+
+  <!-- Load robot description based on model -->
+  <param name="robot_description" 
+         command="cat $(find omni_diff)/urdf/$(arg model).urdf" />
+
+  <!-- Start Gazebo with new_room.world -->
+  <node name="gazebo" pkg="gazebo_ros" type="gzserver" 
+        args="$(find omni_diff)/worlds/new_room.world" 
+        output="screen">
+    <param name="use_sim_time" value="true" />
+  </node>
+
+  <!-- Static transform publisher for base_footprint to base_link -->
+  <node name="tf_footprint_base" pkg="tf" type="static_transform_publisher" 
+        args="0 0 0 0 0 0 base_link base_footprint 40" />
+
+  <!-- Spawn robot model in Gazebo -->
+  <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" 
+        args="-urdf -model $(arg model) -param robot_description -x 0 -y 0 -z 0" 
+        output="screen" />
+
+  <!-- Publish fake joint calibration -->
+  <node name="fake_joint_calibration" pkg="rostopic" type="rostopic" 
+        args="pub /calibrated std_msgs/Bool true" />
+</launch>
