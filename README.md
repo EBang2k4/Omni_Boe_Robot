@@ -41,7 +41,7 @@ sudo apt install ros-noetic-hector-slam
 sudo apt install ros-noetic-slam-karto
 ```
 
-### Chạy SLAM
+## Chạy SLAM
 
 - CHỌN MODEL CHO ROBOT `omni` HOẶC `boe_bot`
 - Model `boe_bot` 2 bánh:
@@ -55,18 +55,18 @@ export OMNI_DIFF_MODEL=boe_bot
 export OMNI_DIFF_MODEL=omni
 ```
 
-- Chạy KARTO SLAM:
+### Chạy KARTO SLAM:
 
 ```bash
 roslaunch omni_diff_slam omni_diff_karto_slam.launch 
 ```
-- Chạy HECTOR SLAM:
+### Chạy HECTOR SLAM:
 
 ```bash
 roslaunch omni_diff_slam omni_diff_hector_slam.launch 
 ```
 
-- Mở Terminal mới, chạy Teleop_Node để quét map:
+### Mở Terminal mới, chạy Teleop_Node để quét map:
 
 ```bash
 rosrun omni_diff_teleop omni_diff_teleop_key 
@@ -78,7 +78,7 @@ rosrun omni_diff_teleop omni_diff_teleop_key
 rosrun map_server map_saver -f ~/catkin_ws/src/Omni_Diff_Robot/omni_diff/maps/TÊN_MAP
 ```
 
-### Chạy NAVIGATION
+## Chạy NAVIGATION
 
 - CHỌN MODEL CHO ROBOT `omni` HOẶC `boe_bot`
 - Model `boe_bot` 2 bánh:
@@ -92,12 +92,12 @@ export OMNI_DIFF_MODEL=boe_bot
 export OMNI_DIFF_MODEL=omni
 ```
 
-- Chạy NAVIGATION:
+### Chạy NAVIGATION:
 
 ```bash
 roslaunch omni_diff_navigation navigation.launch 
 ```
-### Chạy HUMAN TRACKING:
+## Chạy HUMAN TRACKING:
 
 - CHỌN MODEL CHO ROBOT `omni` HOẶC `boe_bot`
 - Model `boe_bot` 2 bánh:
@@ -110,7 +110,7 @@ export OMNI_DIFF_MODEL=boe_bot
 ```bash
 export OMNI_DIFF_MODEL=omni
 ```
-- Chạy Human tracking Node:
+### Chạy Human tracking Node:
 
 ```bash
 roslaunch omni_diff_human_tracking yolo_tracker.launch 
