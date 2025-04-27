@@ -7,9 +7,7 @@
 
 ## Lưu ý
 
-- Đảm bảo đường dẫn các file map.yaml trong Omni_Diff_Robot/omni_diff/maps được sửa thành đường dẫn đúng của máy.
-- Đảm bảo đường dẫn new_room.world đúng. Vào new_room.world, "CTRL+F: bang", chuột phải chọn Change All Ocurrence sau đó sửa thành đường dẫn chuẩn trong máy.
-- Tải đủ thư viện Hector và Karto.
+- Đảm bảo đường dẫn các file map.yaml trong Omni_Diff_Robot/omni_diff/maps được sửa thành đường dẫn đúng của máy nếu muốn chạy navigation trực tiếp
 
 ---
 ## Yêu cầu
@@ -25,7 +23,6 @@
 ## Cài đặt
 
 ### Clone Repository
-Trên **cả laptop và Raspberry Pi 3**, clone package vào workspace ROS:
 
 ```bash
 cd ~/catkin_ws/src
@@ -34,14 +31,28 @@ cd ~/catkin_ws
 catkin_make
 source devel/setup.bash
 ```
+### Tải Thư viện cần thiết
 
+```bash
+sudo apt update
+sudo apt install ros-noetic-vision-msgs
+pip3 install ultralytics
+sudo apt install ros-noetic-hector-slam
+sudo apt install ros-noetic-slam-karto
+```
 
 ### Chạy SLAM
 
 - CHỌN MODEL CHO ROBOT `omni` HOẶC `boe_bot`
+- Model `boe_bot` 2 bánh:
 
 ```bash
-export OMNI_DIFF_MODEL=MODEL_TYPE
+export OMNI_DIFF_MODEL=boe_bot
+```
+- Hoặc model `omni` 4 bánh:
+
+```bash
+export OMNI_DIFF_MODEL=omni
 ```
 
 - Chạy KARTO SLAM:
@@ -55,7 +66,7 @@ roslaunch omni_diff_slam omni_diff_karto_slam.launch
 roslaunch omni_diff_slam omni_diff_hector_slam.launch 
 ```
 
-- Chạy Teleop_Node để quét map:
+- Mở Terminal mới, chạy Teleop_Node để quét map:
 
 ```bash
 rosrun omni_diff_teleop omni_diff_teleop_key 
@@ -70,9 +81,15 @@ rosrun map_server map_saver -f ~/catkin_ws/src/Omni_Diff_Robot/omni_diff/maps/T�
 ### Chạy NAVIGATION
 
 - CHỌN MODEL CHO ROBOT `omni` HOẶC `boe_bot`
+- Model `boe_bot` 2 bánh:
 
 ```bash
-export OMNI_DIFF_MODEL=MODEL_TYPE
+export OMNI_DIFF_MODEL=boe_bot
+```
+- Hoặc model `omni` 4 bánh:
+
+```bash
+export OMNI_DIFF_MODEL=omni
 ```
 
 - Chạy NAVIGATION:
@@ -80,20 +97,20 @@ export OMNI_DIFF_MODEL=MODEL_TYPE
 ```bash
 roslaunch omni_diff_navigation navigation.launch 
 ```
-### Chạy NAVIGATION
+### Chạy HUMAN TRACKING:
 
 - CHỌN MODEL CHO ROBOT `omni` HOẶC `boe_bot`
+- Model `boe_bot` 2 bánh:
 
 ```bash
-export OMNI_DIFF_MODEL=MODEL_TYPE
+export OMNI_DIFF_MODEL=boe_bot
 ```
-
-- Chạy HUMAN_TRACKING:
-- CHỌN MODEL CHO ROBOT `omni` HOẶC `boe_bot`
+- Hoặc model `omni` 4 bánh:
 
 ```bash
-export OMNI_DIFF_MODEL=MODEL_TYPE
+export OMNI_DIFF_MODEL=omni
 ```
+- Chạy Human tracking Node:
 
 ```bash
 roslaunch omni_diff_human_tracking yolo_tracker.launch 
