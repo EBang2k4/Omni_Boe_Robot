@@ -4,7 +4,8 @@
 
 ---
 ---
-
+## Kết quả
+https://www.youtube.com/watch?v=XNcM_ScEpm4
 ## Lưu ý
 
 - Đảm bảo đường dẫn các file map.yaml trong Omni_Diff_Robot/omni_diff/maps được sửa thành đường dẫn đúng của máy nếu muốn chạy navigation trực tiếp
@@ -40,7 +41,12 @@ pip3 install ultralytics
 sudo apt install ros-noetic-hector-slam
 sudo apt install ros-noetic-slam-karto
 ```
+## Mô hình 3D
+### Boe_bot
+   ![Robot Omni 3 Bánh](images/Boe_bot.png)
 
+### Omni bot
+   ![Robot Omni 3 Bánh](images/Omni.png)
 ## Chạy SLAM
 
 - CHỌN MODEL CHO ROBOT `omni` HOẶC `boe_bot`
@@ -60,11 +66,13 @@ export OMNI_DIFF_MODEL=omni
 ```bash
 roslaunch omni_diff_slam omni_diff_karto_slam.launch 
 ```
+   ![Robot Omni 3 Bánh](images/Karto.png)
 ### Chạy HECTOR SLAM:
 
 ```bash
 roslaunch omni_diff_slam omni_diff_hector_slam.launch 
 ```
+   ![Robot Omni 3 Bánh](images/Hector.png)
 
 ### Mở Terminal mới, chạy Teleop_Node để quét map:
 
@@ -97,6 +105,7 @@ export OMNI_DIFF_MODEL=omni
 ```bash
 roslaunch omni_diff_navigation navigation.launch 
 ```
+   ![Robot Omni 3 Bánh](images/Navigation.png)
 ## Chạy HUMAN TRACKING:
 
 - CHỌN MODEL CHO ROBOT `omni` HOẶC `boe_bot`
@@ -115,4 +124,4 @@ export OMNI_DIFF_MODEL=omni
 ```bash
 roslaunch omni_diff_human_tracking yolo_tracker.launch 
 ```
-
+   ![Robot Omni 3 Bánh](images/Tracking.png)
